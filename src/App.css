@@ -1,0 +1,76 @@
+.app {
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+  background: var(--color-bg);
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
+}
+
+.task-manager {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.task-manager__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.task-manager__eyebrow {
+  margin: 0 0 0.35rem;
+
+  color: var(--color-primary);
+
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.task-manager__header h1 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.task-manager__description {
+  margin: 0.5rem 0 0;
+
+  color: var(--color-text-secondary);
+
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .app {
+    padding: 4rem 1.5rem;
+  }
+
+  .task-manager__header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-manager__header {
+    align-items: flex-start;
+  }
+
+  .theme-toggle__label {
+    display: none;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+}

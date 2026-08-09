@@ -1,0 +1,57 @@
+.task-filters {
+  display: flex;
+  gap: 0.5rem;
+
+  margin-bottom: 1rem;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+}
+
+.task-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.task-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  border: none;
+  background: transparent;
+
+  color: var(--color-text-secondary);
+
+  padding: 0.55rem 0.75rem;
+
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  font-weight: 600;
+
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.task-filter:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.task-filter--active {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.task-filter__count {
+  min-width: 1.25rem;
+
+  text-align: center;
+
+  font-size: 0.75rem;
+}

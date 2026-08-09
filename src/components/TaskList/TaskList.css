@@ -1,0 +1,23 @@
+.task-list {
+  width: 100%;
+  min-height: 20px;
+
+  padding: 0.25rem;
+
+  border-radius: var(--radius-md);
+
+  transition: background-color var(--transition-normal);
+}
+
+.task-list--dragging-over {
+  background: var(--color-primary-soft);
+}
+
+.task-list__item {
+  margin-bottom: 0.75rem;
+  border-radius: var(--radius-md);
+}
+
+.task-list__item--dragging {
+  opacity: 0.9;
+}
