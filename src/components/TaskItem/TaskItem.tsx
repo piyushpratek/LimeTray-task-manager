@@ -57,8 +57,8 @@ function TaskItem({
     return (
         <article
             className={`task-item ${isRemoving
-                ? "task-item--removing"
-                : ""
+                    ? "task-item--removing"
+                    : ""
                 }`}
         >
             <span
@@ -71,8 +71,8 @@ function TaskItem({
             <button
                 type="button"
                 className={`task-item__checkbox ${task.completed
-                    ? "task-item__checkbox--completed"
-                    : ""
+                        ? "task-item__checkbox--completed"
+                        : ""
                     }`}
                 onClick={() => onToggle(task.id)}
                 disabled={isRemoving}
@@ -81,14 +81,12 @@ function TaskItem({
                         ? `Mark "${task.title}" as pending`
                         : `Mark "${task.title}" as completed`
                 }
-            >
-                {task.completed && "✓"}
-            </button>
+            />
 
             <span
                 className={`task-item__title ${task.completed
-                    ? "task-item__title--completed"
-                    : ""
+                        ? "task-item__title--completed"
+                        : ""
                     }`}
             >
                 {task.title}

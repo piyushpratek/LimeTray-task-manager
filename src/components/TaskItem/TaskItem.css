@@ -68,15 +68,19 @@
   pointer-events: none;
 }
 
-.task-item__drag-handle {
-  min-width: 2rem;
-  min-height: 2rem;
+/* -----------------------------
+   Drag Handle
+----------------------------- */
 
+.task-item__drag-handle {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 1.25rem;
+  width: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
+
   flex-shrink: 0;
 
   color: var(--color-text-muted);
@@ -97,29 +101,39 @@
   cursor: grabbing;
 }
 
+/* -----------------------------
+   Checkbox
+----------------------------- */
+
 .task-item__checkbox {
+  position: relative;
+
   width: 2.5rem;
   height: 2.5rem;
+
   flex-shrink: 0;
 
   display: grid;
   place-items: center;
 
   border: none;
+  border-radius: 50%;
+
   background: transparent;
 
-  color: var(--color-primary);
+  color: transparent;
 
   cursor: pointer;
 
-  font-size: 0.75rem;
-  font-weight: 700;
-
-  position: relative;
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .task-item__checkbox::before {
   content: '';
+
+  position: absolute;
 
   width: 1.35rem;
   height: 1.35rem;
@@ -139,34 +153,40 @@
   border-color: var(--color-primary);
 }
 
+.task-item__checkbox:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
 .task-item__checkbox--completed::before {
   border-color: var(--color-primary);
   background: var(--color-primary);
 }
 
-.task-item__checkbox:hover:not(:disabled) {
-  border-color: var(--color-primary);
-}
+.task-item__checkbox--completed::after {
+  content: '✓';
 
-.task-item__checkbox:active:not(:disabled) {
-  transform: scale(0.9);
-}
+  position: absolute;
+  z-index: 1;
 
-.task-item__checkbox--completed {
-  border-color: var(--color-primary);
-  background: var(--color-primary);
+  color: white;
+
+  font-size: 0.75rem;
+  font-weight: 700;
 
   animation: checkbox-pop 180ms ease-out;
 }
 
+/* -----------------------------
+   Task Title
+----------------------------- */
+
 .task-item__title {
   flex: 1;
+  min-width: 0;
 
   color: var(--color-text);
 
   word-break: break-word;
-
-  min-width: 0;
 
   transition:
     color var(--transition-normal),
@@ -175,8 +195,13 @@
 
 .task-item__title--completed {
   color: var(--color-text-muted);
+
   text-decoration: line-through;
 }
+
+/* -----------------------------
+   Delete Button
+----------------------------- */
 
 .task-item__delete {
   border: none;
@@ -207,20 +232,29 @@
   opacity: 0.7;
 }
 
+/* -----------------------------
+   Reduced Motion
+----------------------------- */
+
 @media (prefers-reduced-motion: reduce) {
   .task-item,
   .task-item--removing,
-  .task-item__checkbox--completed {
+  .task-item__checkbox--completed::after {
     animation: none;
   }
 
   .task-item,
   .task-item__checkbox,
+  .task-item__checkbox::before,
   .task-item__title,
   .task-item__delete {
     transition: none;
   }
 }
+
+/* -----------------------------
+   Mobile
+----------------------------- */
 
 @media (max-width: 480px) {
   .task-item {
